@@ -1,0 +1,46 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --cursor-clr: #000;
+}
+
+.wrapper {
+  --x: 0;
+  --y: 0;
+  --scale: 20px;
+
+  position: absolute;
+  inset: 0;
+  height: 200vh;
+  background-color: var(--cursor-clr);
+  clip-path: circle(var(--scale) at var(--x, 0) var(--y, 0));
+  transition: clip-path 0.3s cubic-bezier(0.52, 0.01, 0.16, 1);
+  color: #000;
+}
+
+.wrapper.moving {
+  clip-path: circle(var(--scale) at var(--x, 0) var(--y, 0));
+  transition: clip-path 0.15s;
+}
+
+section {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
+.layer-1 {
+  border: 1px solid red;
+  padding: 30px 20px;
+  cursor: pointer;
+}
+
+.layer-2 {
+  cursor: pointer;
+  position: absolute;
+  color: red;
+}

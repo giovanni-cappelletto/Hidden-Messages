@@ -5,7 +5,7 @@
 }
 
 :root {
-  --cursor-clr: #000;
+  --cursor-clr: #ff8c00;
 }
 
 .wrapper {
@@ -19,7 +19,6 @@
   background-color: var(--cursor-clr);
   clip-path: circle(var(--scale) at var(--x, 0) var(--y, 0));
   transition: clip-path 0.3s cubic-bezier(0.52, 0.01, 0.16, 1);
-  color: #000;
 }
 
 .wrapper.moving {
@@ -42,5 +41,5 @@ section {
 .layer-2 {
   cursor: pointer;
   position: absolute;
-  color: red;
+  color: rgb(255, 255, 255);
 }

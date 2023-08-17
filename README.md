@@ -4,7 +4,6 @@ A cool effect for showing up hidden messages
 
 ## ToDo
 
-- checking timeSpan interaction: after we've triggered it, if we go over the target, the timer doesn't restart
 - fixing bug with more than one section
 - implementing reduceOnStop
 - Handling styles

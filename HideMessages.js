@@ -32,21 +32,20 @@ class HideMessages {
     this.rootElement.style.setProperty("--scale", size);
   }
 
-  checkIntersection({ left, right, top, bottom }, pageX, pageY) {
-    // Maybe use here this.pageX and this.pageY (try after committing)
-    return pageX > left && pageX < right && pageY > top && pageY < bottom;
-  }
-
-  reduceInstantly(targetRect) {
-    if (!this.checkIntersection(targetRect, this.pageX, this.pageY)) {
-    }
+  checkIntersection({ left, right, top, bottom }) {
+    return (
+      this.pageX > left &&
+      this.pageX < right &&
+      this.pageY > top &&
+      this.pageY < bottom
+    );
   }
 
   reduceAfterTimeSpan(targetRect) {
-    this.timeoutID = setTimeout(() => {
-      clearTimeout(this.timeoutID);
+    clearTimeout(this.timeoutID);
 
-      if (this.checkIntersection(targetRect, this.pageX, this.pageY)) {
+    this.timeoutID = setTimeout(() => {
+      if (this.checkIntersection(targetRect)) {
         this.reduceAfterTimeSpan(targetRect);
         return;
       }
@@ -66,7 +65,7 @@ class HideMessages {
 
         if (!this.zoomCursorOnHover) return;
 
-        if (this.checkIntersection(this.targetRect, this.pageX, this.pageY)) {
+        if (this.checkIntersection(this.targetRect)) {
           this.scale(this.maxSize);
 
           if (!this.reduceImmediately) {
